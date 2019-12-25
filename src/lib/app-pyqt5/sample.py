@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow,QAction
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
@@ -13,6 +13,25 @@ if __name__ == '__main__':
 
     # 标题
     win.setWindowTitle('Binging Go')
+
+    # 菜单栏
+    menu = win.menuBar()
+
+    # 菜单
+    file_menu = menu.addMenu("File")
+    edit_menu = menu.addMenu("Edit")
+    view_menu = menu.addMenu("View")
+
+    # 行为
+    new_project_action = QAction('New Project')
+    file_menu.addAction(new_project_action)
+
+    exit_action = QAction('Exit')
+
+    # 快捷键
+    exit_action.setShortcut('Ctrl+Q')
+
+    file_menu.addAction(exit_action)
 
     # 窗口显示
     win.show()
