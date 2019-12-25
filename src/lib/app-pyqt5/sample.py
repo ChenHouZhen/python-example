@@ -31,6 +31,9 @@ if __name__ == '__main__':
     # 快捷键
     exit_action.setShortcut('Ctrl+Q')
 
+    # 点击
+    exit_action.triggered.connect(win.close)
+
     file_menu.addAction(exit_action)
 
     # 窗口显示
