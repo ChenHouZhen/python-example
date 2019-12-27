@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow,QAction
+from PyQt5.QtWidgets import QApplication, QMainWindow, QAction
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
@@ -16,7 +16,6 @@ if __name__ == '__main__':
 
     # 菜单栏
     menu = win.menuBar()
-
     # 菜单
     file_menu = menu.addMenu("File")
     edit_menu = menu.addMenu("Edit")

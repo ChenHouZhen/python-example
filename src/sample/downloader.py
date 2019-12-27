@@ -1,10 +1,12 @@
 import requests
+from requests import ConnectionError
 
 proxies = {
-    "https": "socks5://root:123456@localhost:8080",
-    "http": "socks5://root:123456@localhost:8080"
+    "https": "https://127.0.0.1:1080",
+    "http": "http://127.0.0.1:1080"
 }
-store_path = ''
+store_path = 'F:/迅雷下载/images'
+images_url_file_path = 'E:\\project\\py\\tumblr-spider\\pictures.txt'
 
 
 def download(url, store_file):
@@ -22,12 +24,15 @@ def read_file(file_path):
 
 
 if __name__ == '__main__':
-    i_file_set = read_file('E:\\training\py\\tumblr-spiber\\pictures.txt')
+    i_file_set = read_file(images_url_file_path)
     print("链接数：%i" % len(i_file_set))
     for url in i_file_set:
+        print("正在下载。%s" % url)
         path_list = url.rsplit("/", 1)
-        image_name = path_list[1]
+        image_name = path_list[1].strip()
         print("图片名称：%s" % image_name)
         file_path = store_path + '/' + image_name
-        download(url, file_path)
-
+        try:
+            download(url, file_path)
+        except (TimeoutError, ConnectionError):
+            print("出错：%s" % url)
