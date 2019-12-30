@@ -6,8 +6,8 @@ import requests
 # 为什么？
 
 socks5_remote_proxies = {
-    "https": "socks5://root:123456@192.243.116.107:8080",
-    "http": "socks5://root:123456@192.243.116.107:8080"
+    "https": "socks5h://root:123456@192.243.116.107:8080",
+    "http": "socks5h://root:123456@192.243.116.107:8080"
 }
 
 socks5_local_proxies = {
@@ -26,7 +26,7 @@ baidu = 'https://www.baidu.com/'
 google = 'https://www.google.com/'
 
 if __name__ == '__main__':
-    res = requests.get(google, proxies=http_proxies)
+    res = requests.get(google, proxies=socks5_remote_proxies)
     print(res.content)
 
 
