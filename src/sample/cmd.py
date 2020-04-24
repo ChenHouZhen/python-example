@@ -8,6 +8,7 @@ from docx.shared import Cm
 from docx.shared import Pt
 from docx.shared import RGBColor
 
+# pyinstaller -F -p E:\project\py\python-example\venv\Lib\site-packages;E:\project\py\python-example\venv\Lib\site-packages\lxml cmd.py
 
 def create_book_cover(document,bookName,authorName,public):
     document.add_paragraph("\n\n\n\n")
